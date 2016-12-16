@@ -4,8 +4,8 @@ Mõlemad APId on realiseeritud Javas, kasutades JAX-WS ja JAX-RS teeke.
 Repos asub Netbeansi projekt, mis sisaldab endas WSDLi põhjal genereeritud operatsioone ja tüüpe ning nendel põhinevat loogikat. 
 
 # How to
-* git clone https://gitlab.com/brenrrr/veebiteenused.git
-* git clone https://gitlab.com/brenrrr/veebiteenused-client.git
+* git clone https://github.com/BrendaUga/veebiteenused.git
+* git clone https://github.com/BrendaUga/veebiteenused-client.git
 * Ava mõlemad projektid Netbeansis
 * Deploy PhotosApp
 * Run Client
