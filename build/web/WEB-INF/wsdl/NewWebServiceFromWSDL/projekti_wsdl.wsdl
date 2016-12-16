@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:tns="http://new.webservice.namespace"
+	targetNamespace="http://new.webservice.namespace"
+	xmlns:tnsx="http://xsd.webservice.namespace">
+	<wsdl:types>
+		<xs:schema targetNamespace="http://xsd.webservice.namespace" elementFormDefault="qualified" xmlns:jxb= "http://java.sun.com/xml/ns/jaxb"
+    jxb:version="1.0" >
+			<xs:complexType name="photoType">
+				<xs:sequence>
+					<xs:element name="photoID" type="xs:integer"/>
+					<xs:element name="photoURL" type="xs:string"/>
+					<xs:element name="title" type="xs:string"/>
+					<xs:element name="description" type="xs:string"/>
+					<xs:element name="author" type="xs:string"/>
+					<xs:element name="dateTaken" type="xs:date"/>
+					<xs:element name="size" type="xs:string"/>
+					<xs:element name="extension" type="tnsx:extensionType"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType name="extensionType" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb">
+				<xs:restriction base="xs:string">
+				    <xs:enumeration value="jpg">
+                        <xs:annotation>
+                          <xs:appinfo>
+                            <jaxb:typesafeEnumMember name="jpg"/>
+                          </xs:appinfo>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="jpeg">
+                        <xs:annotation>
+                          <xs:appinfo>
+                            <jaxb:typesafeEnumMember name="jpeg"/>
+                          </xs:appinfo>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="png">
+                        <xs:annotation>
+                          <xs:appinfo>
+                            <jaxb:typesafeEnumMember name="png"/>
+                          </xs:appinfo>
+                        </xs:annotation>
+                    </xs:enumeration>
+				    <xs:enumeration value="gif">
+                        <xs:annotation>
+                          <xs:appinfo>
+                            <jaxb:typesafeEnumMember name="gif"/>
+                          </xs:appinfo>
+                        </xs:annotation>
+                    </xs:enumeration>
+				    <xs:enumeration value="svg">
+                        <xs:annotation>
+                          <xs:appinfo>
+                            <jaxb:typesafeEnumMember name="svg"/>
+                          </xs:appinfo>
+                        </xs:annotation>
+                    </xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:complexType name="albumType">
+				<xs:sequence>
+					<xs:element name="albumID" type="xs:integer"/>
+					<xs:element name="albumURL" type="xs:string"/>
+					<xs:element name="title" type="xs:string"/>
+					<xs:element name="description" type="xs:string"/>
+					<xs:element name="owner" type="xs:string"/>
+					<xs:element name="dateCreated" type="xs:date"/>
+					<xs:element name="size" type="xs:integer"/>
+					<xs:sequence>
+						<xs:element minOccurs="0" maxOccurs="unbounded" name="photo" type="tnsx:photoType"/>
+					</xs:sequence>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="StatusType">
+				<xs:sequence>
+					<xs:element name="Message" type="xs:string"/>
+					<xs:element name="REQUEST_ID" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="AddPhotoRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="API_TOKEN" type="xs:string"/>
+						<xs:element name="REQUEST_ID" type="xs:string"/>
+						<xs:element name="photoURL" type="xs:string"/>
+						<xs:element name="title" type="xs:string"/>
+						<xs:element name="description" type="xs:string"/>
+						<xs:element name="author" type="xs:string"/>
+						<xs:element name="dateTaken" type="xs:date"/>
+						<xs:element name="size" type="xs:string"/>
+						<xs:element name="extension" type="tnsx:extensionType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AddPhotoResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="StatusMessage" type="tnsx:StatusType"/>
+						<xs:element name="photo" type="tnsx:photoType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetPhotoRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="API_TOKEN" type="xs:string"/>
+						<xs:element name="REQUEST_ID" type="xs:string"/>
+						<xs:element name="photoID" type="xs:integer"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetPhotoResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="StatusMessage" type="tnsx:StatusType"/>
+						<xs:element minOccurs="0" maxOccurs="1" name="photo" type="tnsx:photoType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetPhotosWithParametersRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="API_TOKEN" type="xs:string"/>
+						<xs:element name="REQUEST_ID" type="xs:string"/>
+						<xs:element minOccurs="0" maxOccurs="1" name="author" type="xs:string"/>
+						<xs:element minOccurs="0" maxOccurs="1" name="title" type="xs:string"/>
+						<xs:element minOccurs="0" maxOccurs="1" name="extension" type="tnsx:extensionType"/>
+						<xs:element minOccurs="0" maxOccurs="1" name="size" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetPhotosWithParametersResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="StatusMessage" type="tnsx:StatusType"/>
+						<xs:element minOccurs="0" maxOccurs="unbounded" name="photo" type="tnsx:photoType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="AddAlbumRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="API_TOKEN" type="xs:string"/>
+						<xs:element name="REQUEST_ID" type="xs:string"/>
+						<xs:element name="title" type="xs:string"/>
+						<xs:element name="description" type="xs:string"/>
+						<xs:element name="owner" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AddAlbumResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="StatusMessage" type="tnsx:StatusType"/>
+						<xs:element name="album" type="tnsx:albumType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetAlbumRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="API_TOKEN" type="xs:string"/>
+						<xs:element name="REQUEST_ID" type="xs:string"/>
+						<xs:element name="albumID" type="xs:integer"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetAlbumResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="StatusMessage" type="tnsx:StatusType"/>
+						<xs:element minOccurs="0" maxOccurs="1" name="album" type="tnsx:albumType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetAlbumsWithParametersRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="API_TOKEN" type="xs:string"/>
+						<xs:element name="REQUEST_ID" type="xs:string"/>
+						<xs:element minOccurs="0" maxOccurs="1" name="owner" type="xs:string"/>
+						<xs:element minOccurs="0" maxOccurs="1" name="size" type="xs:integer"/>
+						<xs:element minOccurs="0" maxOccurs="1" name="title" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetAlbumsWithParametersResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="StatusMessage" type="tnsx:StatusType"/>
+						<xs:element minOccurs="0" maxOccurs="unbounded" name="album" type="tnsx:albumType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="AddPhotoToAlbumRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="API_TOKEN" type="xs:string"/>
+						<xs:element name="REQUEST_ID" type="xs:string"/>
+						<xs:element minOccurs="1" maxOccurs="unbounded" name="photoID" type="xs:integer"/>
+						<xs:element minOccurs="1" maxOccurs="unbounded" name="albumID" type="xs:integer"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AddPhotoToAlbumResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="StatusMessage" type="tnsx:StatusType"/>
+						<xs:element minOccurs="0" maxOccurs="unbounded" name="album" type="tnsx:albumType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetPhotosInAlbumRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="API_TOKEN" type="xs:string"/>
+						<xs:element name="REQUEST_ID" type="xs:string"/>
+						<xs:element name="albumID" type="xs:integer"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetPhotosInAlbumResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="StatusMessage" type="tnsx:StatusType"/>
+						<xs:element minOccurs="0" maxOccurs="unbounded" name="photo" type="tnsx:photoType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="AddPhotoMessageRequest">
+		<wsdl:part name="parameter" element="tnsx:AddPhotoRequest"/>
+	</wsdl:message>
+	<wsdl:message name="AddPhotoMessageResponse">
+		<wsdl:part name="parameter" element="tnsx:AddPhotoResponse"/>
+	</wsdl:message>
+	<wsdl:message name="AddAlbumMessageRequest">
+		<wsdl:part name="parameter" element="tnsx:AddAlbumRequest"/>
+	</wsdl:message>
+	<wsdl:message name="AddAlbumMessageResponse">
+		<wsdl:part name="parameter" element="tnsx:AddAlbumResponse"/>
+	</wsdl:message>
+	<wsdl:message name="GetPhotoMessageRequest">
+		<wsdl:part name="parameter" element="tnsx:GetPhotoRequest"/>
+	</wsdl:message>
+	<wsdl:message name="GetPhotoMessageResponse">
+		<wsdl:part name="parameter" element="tnsx:GetPhotoResponse"/>
+	</wsdl:message>
+	<wsdl:message name="GetAlbumMessageRequest">
+		<wsdl:part name="parameter" element="tnsx:GetAlbumRequest"/>
+	</wsdl:message>
+	<wsdl:message name="GetAlbumMessageResponse">
+		<wsdl:part name="parameter" element="tnsx:GetAlbumResponse"/>
+	</wsdl:message>
+	<wsdl:message name="GetPhotosWithParametersMessageRequest">
+		<wsdl:part name="parameter" element="tnsx:GetPhotosWithParametersRequest"/>
+	</wsdl:message>
+	<wsdl:message name="GetPhotosWithParametersMessageResponse">
+		<wsdl:part name="parameter" element="tnsx:GetPhotosWithParametersResponse"/>
+	</wsdl:message>
+	<wsdl:message name="GetAlbumsWithParametersMessageRequest">
+		<wsdl:part name="parameter" element="tnsx:GetAlbumsWithParametersRequest"/>
+	</wsdl:message>
+	<wsdl:message name="GetAlbumsWithParametersMessageResponse">
+		<wsdl:part name="parameter" element="tnsx:GetAlbumsWithParametersResponse"/>
+	</wsdl:message>
+	<wsdl:message name="AddPhotoToAlbumMessageRequest">
+		<wsdl:part name="parameter" element="tnsx:AddPhotoToAlbumRequest"/>
+	</wsdl:message>
+	<wsdl:message name="AddPhotoToAlbumMessageResponse">
+		<wsdl:part name="parameter" element="tnsx:AddPhotoToAlbumResponse"/>
+	</wsdl:message>
+	<wsdl:message name="GetPhotosInAlbumMessageRequest">
+		<wsdl:part name="parameter" element="tnsx:GetPhotosInAlbumRequest"/>
+	</wsdl:message>
+	<wsdl:message name="GetPhotosInAlbumMessageResponse">
+		<wsdl:part name="parameter" element="tnsx:GetPhotosInAlbumResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="PhotoalbumPortType">
+		<wsdl:operation name="AddPhoto">
+			<wsdl:input message="tns:AddPhotoMessageRequest"/>
+			<wsdl:output message="tns:AddPhotoMessageResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="AddAlbum">
+			<wsdl:input message="tns:AddAlbumMessageRequest"/>
+			<wsdl:output message="tns:AddAlbumMessageResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetPhoto">
+			<wsdl:input message="tns:GetPhotoMessageRequest"/>
+			<wsdl:output message="tns:GetPhotoMessageResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetAlbum">
+			<wsdl:input message="tns:GetAlbumMessageRequest"/>
+			<wsdl:output message="tns:GetAlbumMessageResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetPhotosWithParameters">
+			<wsdl:input message="tns:GetPhotosWithParametersMessageRequest"/>
+			<wsdl:output message="tns:GetPhotosWithParametersMessageResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetAlbumsWithParameters">
+			<wsdl:input message="tns:GetAlbumsWithParametersMessageRequest"/>
+			<wsdl:output message="tns:GetAlbumsWithParametersMessageResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="AddPhotoToAlbum">
+			<wsdl:input message="tns:AddPhotoToAlbumMessageRequest"/>
+			<wsdl:output message="tns:AddPhotoToAlbumMessageResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetPhotosInAlbum">
+			<wsdl:input message="tns:GetPhotosInAlbumMessageRequest"/>
+			<wsdl:output message="tns:GetPhotosInAlbumMessageResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="PhotoalbumBinding" type="tns:PhotoalbumPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="AddPhoto">
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddAlbum">
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPhoto">
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetAlbum">
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPhotosWithParameters">
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetAlbumsWithParameters">
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AddPhotoToAlbum">
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPhotosInAlbum">
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="PhotoalbumService">
+		<wsdl:port name="PhotoalbumPort" binding="tns:PhotoalbumBinding">
+			<soap:address location="Empty"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

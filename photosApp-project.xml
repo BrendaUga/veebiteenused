@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="1d80bbda-9b3a-41dd-8e28-47b646c4bf44" activeEnvironment="Default" name="Projekt" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="TestSuite" value="PhotoalbumBinding TestSuite"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Save Project" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="Endpoint" value=""/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:WsdlInterface" id="b229ee6e-c7fa-4b95-a735-92d90f6afcc5" wsaVersion="NONE" name="PhotoalbumBinding" type="wsdl" bindingName="{http://new.webservice.namespace}PhotoalbumBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/veebiteenused/services/PhotoalbumPortType?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/veebiteenused/services/PhotoalbumPortType?wsdl"><con:part><con:url>http://localhost:8080/veebiteenused/services/PhotoalbumPortType?wsdl</con:url><con:content><![CDATA[<!--Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown.-->
+<wsdl:definitions targetNamespace="http://new.webservice.namespace" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://new.webservice.namespace" xmlns:tnsx="http://xsd.webservice.namespace">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://xsd.webservice.namespace" elementFormDefault="qualified" jxb:version="1.0" xmlns:jxb="http://java.sun.com/xml/ns/jaxb">
+      <xs:complexType name="photoType">
+        <xs:sequence>
+          <xs:element name="photoID" type="xs:integer"/>
+          <xs:element name="photoURL" type="xs:string"/>
+          <xs:element name="title" type="xs:string"/>
+          <xs:element name="description" type="xs:string"/>
+          <xs:element name="author" type="xs:string"/>
+          <xs:element name="dateTaken" type="xs:date"/>
+          <xs:element name="size" type="xs:string"/>
+          <xs:element name="extension" type="tnsx:extensionType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="extensionType" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="jpg">
+            <xs:annotation>
+              <xs:appinfo>
+                <jaxb:typesafeEnumMember name="jpg"/>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="jpeg">
+            <xs:annotation>
+              <xs:appinfo>
+                <jaxb:typesafeEnumMember name="jpeg"/>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="png">
+            <xs:annotation>
+              <xs:appinfo>
+                <jaxb:typesafeEnumMember name="png"/>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="gif">
+            <xs:annotation>
+              <xs:appinfo>
+                <jaxb:typesafeEnumMember name="gif"/>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="svg">
+            <xs:annotation>
+              <xs:appinfo>
+                <jaxb:typesafeEnumMember name="svg"/>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="albumType">
+        <xs:sequence>
+          <xs:element name="albumID" type="xs:integer"/>
+          <xs:element name="albumURL" type="xs:string"/>
+          <xs:element name="title" type="xs:string"/>
+          <xs:element name="description" type="xs:string"/>
+          <xs:element name="owner" type="xs:string"/>
+          <xs:element name="dateCreated" type="xs:date"/>
+          <xs:element name="size" type="xs:integer"/>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="photo" type="tnsx:photoType"/>
+          </xs:sequence>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="StatusType">
+        <xs:sequence>
+          <xs:element name="Message" type="xs:string"/>
+          <xs:element name="REQUEST_ID" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AddPhotoRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="API_TOKEN" type="xs:string"/>
+            <xs:element name="REQUEST_ID" type="xs:string"/>
+            <xs:element name="photoURL" type="xs:string"/>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="author" type="xs:string"/>
+            <xs:element name="dateTaken" type="xs:date"/>
+            <xs:element name="size" type="xs:string"/>
+            <xs:element name="extension" type="tnsx:extensionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddPhotoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="StatusMessage" type="tnsx:StatusType"/>
+            <xs:element name="photo" type="tnsx:photoType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPhotoRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="API_TOKEN" type="xs:string"/>
+            <xs:element name="REQUEST_ID" type="xs:string"/>
+            <xs:element name="photoID" type="xs:integer"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPhotoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="StatusMessage" type="tnsx:StatusType"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="photo" type="tnsx:photoType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPhotosWithParametersRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="API_TOKEN" type="xs:string"/>
+            <xs:element name="REQUEST_ID" type="xs:string"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="author" type="xs:string"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="title" type="xs:string"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="extension" type="tnsx:extensionType"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="size" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPhotosWithParametersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="StatusMessage" type="tnsx:StatusType"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="photo" type="tnsx:photoType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddAlbumRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="API_TOKEN" type="xs:string"/>
+            <xs:element name="REQUEST_ID" type="xs:string"/>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="owner" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddAlbumResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="StatusMessage" type="tnsx:StatusType"/>
+            <xs:element name="album" type="tnsx:albumType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAlbumRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="API_TOKEN" type="xs:string"/>
+            <xs:element name="REQUEST_ID" type="xs:string"/>
+            <xs:element name="albumID" type="xs:integer"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAlbumResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="StatusMessage" type="tnsx:StatusType"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="album" type="tnsx:albumType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAlbumsWithParametersRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="API_TOKEN" type="xs:string"/>
+            <xs:element name="REQUEST_ID" type="xs:string"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="owner" type="xs:string"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="size" type="xs:integer"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="title" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAlbumsWithParametersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="StatusMessage" type="tnsx:StatusType"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="album" type="tnsx:albumType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddPhotoToAlbumRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="API_TOKEN" type="xs:string"/>
+            <xs:element name="REQUEST_ID" type="xs:string"/>
+            <xs:element minOccurs="1" maxOccurs="unbounded" name="photoID" type="xs:integer"/>
+            <xs:element minOccurs="1" maxOccurs="unbounded" name="albumID" type="xs:integer"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddPhotoToAlbumResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="StatusMessage" type="tnsx:StatusType"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="album" type="tnsx:albumType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPhotosInAlbumRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="API_TOKEN" type="xs:string"/>
+            <xs:element name="REQUEST_ID" type="xs:string"/>
+            <xs:element name="albumID" type="xs:integer"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPhotosInAlbumResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="StatusMessage" type="tnsx:StatusType"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="photo" type="tnsx:photoType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="AddPhotoMessageRequest">
+    <wsdl:part name="parameter" element="tnsx:AddPhotoRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AddPhotoMessageResponse">
+    <wsdl:part name="parameter" element="tnsx:AddPhotoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AddAlbumMessageRequest">
+    <wsdl:part name="parameter" element="tnsx:AddAlbumRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AddAlbumMessageResponse">
+    <wsdl:part name="parameter" element="tnsx:AddAlbumResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetPhotoMessageRequest">
+    <wsdl:part name="parameter" element="tnsx:GetPhotoRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetPhotoMessageResponse">
+    <wsdl:part name="parameter" element="tnsx:GetPhotoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetAlbumMessageRequest">
+    <wsdl:part name="parameter" element="tnsx:GetAlbumRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetAlbumMessageResponse">
+    <wsdl:part name="parameter" element="tnsx:GetAlbumResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetPhotosWithParametersMessageRequest">
+    <wsdl:part name="parameter" element="tnsx:GetPhotosWithParametersRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetPhotosWithParametersMessageResponse">
+    <wsdl:part name="parameter" element="tnsx:GetPhotosWithParametersResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetAlbumsWithParametersMessageRequest">
+    <wsdl:part name="parameter" element="tnsx:GetAlbumsWithParametersRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetAlbumsWithParametersMessageResponse">
+    <wsdl:part name="parameter" element="tnsx:GetAlbumsWithParametersResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AddPhotoToAlbumMessageRequest">
+    <wsdl:part name="parameter" element="tnsx:AddPhotoToAlbumRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AddPhotoToAlbumMessageResponse">
+    <wsdl:part name="parameter" element="tnsx:AddPhotoToAlbumResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetPhotosInAlbumMessageRequest">
+    <wsdl:part name="parameter" element="tnsx:GetPhotosInAlbumRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetPhotosInAlbumMessageResponse">
+    <wsdl:part name="parameter" element="tnsx:GetPhotosInAlbumResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="PhotoalbumPortType">
+    <wsdl:operation name="AddPhoto">
+      <wsdl:input message="tns:AddPhotoMessageRequest"/>
+      <wsdl:output message="tns:AddPhotoMessageResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="AddAlbum">
+      <wsdl:input message="tns:AddAlbumMessageRequest"/>
+      <wsdl:output message="tns:AddAlbumMessageResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhoto">
+      <wsdl:input message="tns:GetPhotoMessageRequest"/>
+      <wsdl:output message="tns:GetPhotoMessageResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbum">
+      <wsdl:input message="tns:GetAlbumMessageRequest"/>
+      <wsdl:output message="tns:GetAlbumMessageResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotosWithParameters">
+      <wsdl:input message="tns:GetPhotosWithParametersMessageRequest"/>
+      <wsdl:output message="tns:GetPhotosWithParametersMessageResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumsWithParameters">
+      <wsdl:input message="tns:GetAlbumsWithParametersMessageRequest"/>
+      <wsdl:output message="tns:GetAlbumsWithParametersMessageResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="AddPhotoToAlbum">
+      <wsdl:input message="tns:AddPhotoToAlbumMessageRequest"/>
+      <wsdl:output message="tns:AddPhotoToAlbumMessageResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotosInAlbum">
+      <wsdl:input message="tns:GetPhotosInAlbumMessageRequest"/>
+      <wsdl:output message="tns:GetPhotosInAlbumMessageResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PhotoalbumBinding" type="tns:PhotoalbumPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="AddPhoto">
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAlbum">
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhoto">
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbum">
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotosWithParameters">
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumsWithParameters">
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPhotoToAlbum">
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotosInAlbum">
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PhotoalbumService">
+    <wsdl:port name="PhotoalbumPort" binding="tns:PhotoalbumBinding">
+      <soap:address location="http://localhost:8080/veebiteenused/services/PhotoalbumPortType"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>Empty</con:endpoint><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint></con:endpoints><con:operation id="db876c74-89cd-4abc-ba9b-dd9c3f3c255a" isOneWay="false" action="" name="AddAlbum" bindingOperationName="AddAlbum" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="76c5df54-ad8c-4329-9015-45ec5cfa3d3a" name="AddAlbumRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://xsd.webservice.namespace">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <xsd:AddAlbumRequest>\r
+         <xsd:API_TOKEN>abcdefg123456</xsd:API_TOKEN>\r
+         <xsd:REQUEST_ID>1</xsd:REQUEST_ID>\r
+         <xsd:title>Album 1</xsd:title>\r
+         <xsd:description>Album 1 kirjeldus</xsd:description>\r
+         <xsd:owner>Brenda</xsd:owner>\r
+      </xsd:AddAlbumRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://new.webservice.namespace/PhotoalbumPortType/AddAlbumRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="1341c2cb-2655-41bf-bb5f-c7f6d13b4ea4" isOneWay="false" action="" name="AddPhoto" bindingOperationName="AddPhoto" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b801883f-830f-425a-a82c-b0f9858d6876" name="AddPhotoRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://xsd.webservice.namespace">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <xsd:AddPhotoRequest>\r
+         <xsd:API_TOKEN>abcdefg123456</xsd:API_TOKEN>\r
+         <xsd:REQUEST_ID>10</xsd:REQUEST_ID>\r
+         <xsd:photoURL>imgur.com/pilt2</xsd:photoURL>\r
+         <xsd:title>Pilt 2</xsd:title>\r
+         <xsd:description>Pildi kirjeldus2</xsd:description>\r
+         <xsd:author>Brenda</xsd:author>\r
+         <xsd:dateTaken>2016-01-02</xsd:dateTaken>\r
+         <xsd:size>900x1600</xsd:size>\r
+         <xsd:extension>jpeg</xsd:extension>\r
+      </xsd:AddPhotoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://new.webservice.namespace/PhotoalbumPortType/AddPhotoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="6f422cee-ab39-4727-b491-91a6b07afa87" isOneWay="false" action="" name="AddPhotoToAlbum" bindingOperationName="AddPhotoToAlbum" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="03b8f14b-b8ef-4856-91ac-6acb70fcbbce" name="AddPhotoToAlbumRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://xsd.webservice.namespace">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <xsd:AddPhotoToAlbumRequest>\r
+         <xsd:API_TOKEN>abcdefg123456</xsd:API_TOKEN>\r
+         <xsd:REQUEST_ID>15</xsd:REQUEST_ID>\r
+         <xsd:photoID>1</xsd:photoID>\r
+         <xsd:albumID>1</xsd:albumID>\r
+      </xsd:AddPhotoToAlbumRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://new.webservice.namespace/PhotoalbumPortType/AddPhotoToAlbumRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="329c5d96-269e-4f9e-834e-99925a2896fb" isOneWay="false" action="" name="GetAlbum" bindingOperationName="GetAlbum" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8a8fb535-8b3e-4069-a263-c13beffa633f" name="GetAlbumRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://xsd.webservice.namespace">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <xsd:GetAlbumRequest>\r
+         <xsd:API_TOKEN>abcdefg123456</xsd:API_TOKEN>\r
+         <xsd:REQUEST_ID>6</xsd:REQUEST_ID>\r
+         <xsd:albumID>1</xsd:albumID>\r
+      </xsd:GetAlbumRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://new.webservice.namespace/PhotoalbumPortType/GetAlbumRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="40d95aa5-347c-4a97-a7b8-7e0c02068ff7" isOneWay="false" action="" name="GetAlbumsWithParameters" bindingOperationName="GetAlbumsWithParameters" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="59539c5f-839a-44b3-a0f5-987113b1d8f1" name="GetAlbumsWithParameterRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://xsd.webservice.namespace">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <xsd:GetAlbumsWithParametersRequest>\r
+         <xsd:API_TOKEN>abcdefg123456</xsd:API_TOKEN>\r
+         <xsd:REQUEST_ID>12</xsd:REQUEST_ID>\r
+         <!--Optional:-->\r
+         <xsd:owner>Brenda</xsd:owner>\r
+      </xsd:GetAlbumsWithParametersRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://new.webservice.namespace/PhotoalbumPortType/GetAlbumsWithParametersRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="946732c7-0a70-4ae2-ad96-da542b672c35" name="Request 2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://xsd.webservice.namespace">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <xsd:GetAlbumsWithParametersRequest>\r
+         <xsd:API_TOKEN>abcdefg123456</xsd:API_TOKEN>\r
+         <xsd:REQUEST_ID>14</xsd:REQUEST_ID>\r
+         <xsd:owner>Brenda</xsd:owner>\r
+         <xsd:size>0</xsd:size>\r
+         <xsd:title>Album 1</xsd:title>\r\r
+      </xsd:GetAlbumsWithParametersRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://new.webservice.namespace/PhotoalbumPortType/GetAlbumsWithParametersRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="a91ed79f-8b77-4a02-a110-b871e32900c3" isOneWay="false" action="" name="GetPhoto" bindingOperationName="GetPhoto" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8b69c3ff-dce8-41f3-a381-d31826c61fa4" name="GetPhotoRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://xsd.webservice.namespace">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <xsd:GetPhotoRequest>\r
+         <xsd:API_TOKEN>abcdefg123456</xsd:API_TOKEN>\r
+         <xsd:REQUEST_ID>18</xsd:REQUEST_ID>\r
+         <xsd:photoID>1</xsd:photoID>\r
+      </xsd:GetPhotoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://new.webservice.namespace/PhotoalbumPortType/GetPhotoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="25e4f75a-fb71-4ff6-bb8c-1088b33d98d8" isOneWay="false" action="" name="GetPhotosInAlbum" bindingOperationName="GetPhotosInAlbum" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bb359884-c6c2-43b8-bfaf-821edc07c7de" name="GetPhotosInAlbumRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://xsd.webservice.namespace">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <xsd:GetPhotosInAlbumRequest>\r
+         <xsd:API_TOKEN>abcdefg123456</xsd:API_TOKEN>\r
+         <xsd:REQUEST_ID>17</xsd:REQUEST_ID>\r
+         <xsd:albumID>1</xsd:albumID>\r
+      </xsd:GetPhotosInAlbumRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://new.webservice.namespace/PhotoalbumPortType/GetPhotosInAlbumRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="a808774a-3cf8-401c-954a-dfd9bf5e7b37" isOneWay="false" action="" name="GetPhotosWithParameters" bindingOperationName="GetPhotosWithParameters" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="41553e25-3a3a-4177-afd0-22209a945fa4" name="GetPhotosWithParametersRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://xsd.webservice.namespace">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <xsd:GetPhotosWithParametersRequest>\r
+         <xsd:API_TOKEN>abcdefg123456</xsd:API_TOKEN>\r
+         <xsd:REQUEST_ID>11</xsd:REQUEST_ID>\r
+         <!--Optional:-->\r
+         <xsd:author>Brenda</xsd:author>\r
+         <xsd:extension>png</xsd:extension>
+      </xsd:GetPhotosWithParametersRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://new.webservice.namespace/PhotoalbumPortType/GetPhotosWithParametersRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="efe12868-881a-4ccc-8d81-4ce19526527b" name="Request 2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://xsd.webservice.namespace">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <xsd:GetPhotosWithParametersRequest>\r
+         <xsd:API_TOKEN>abcdefg123456</xsd:API_TOKEN>\r
+         <xsd:REQUEST_ID>12</xsd:REQUEST_ID>\r
+         <xsd:author>Brenda</xsd:author>\r
+         <xsd:title>Pilt 2</xsd:title>\r\r
+         <xsd:extension>jpeg</xsd:extension>\r
+         <xsd:size>900x1600</xsd:size>\r
+      </xsd:GetPhotosWithParametersRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://new.webservice.namespace/PhotoalbumPortType/GetPhotosWithParametersRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="90694618-0250-4613-8e33-7f5dca5f4abb" name="PhotoalbumBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="c0e19cdd-04ce-451e-86fc-e70bfdbab1f1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddAlbum TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="27b7c971-9d75-47de-991f-52676820e91b" name="AddAlbum"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PhotoalbumBinding</con:interface><con:operation>AddAlbum</con:operation><con:request name="AddAlbum" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="c2adbbfc-2c7e-40fd-a727-f48bc1049d62"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://xsd.webservice.namespace">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <xsd:AddAlbumRequest>\r
+         <xsd:API_TOKEN>abcdefg123456</xsd:API_TOKEN>\r
+         <xsd:REQUEST_ID>12</xsd:REQUEST_ID>\r
+         <xsd:title>Album 1</xsd:title>\r
+         <xsd:description>Album 1 kirjeldus</xsd:description>\r
+         <xsd:owner>Brenda</xsd:owner>\r
+      </xsd:AddAlbumRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="e3af45bb-ab11-4180-a676-646ecaeb7769" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" id="7f4a7849-2c67-44a5-bf58-e0e2cb65764a" name="XPath Match"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:title</path><content>Album 1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>true</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="3720a516-4237-4463-8c1a-210054ac12bf" name="XPath Match Description"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:description</path><content>Album 1 kirjeldus</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="32126c8f-eb90-4eb9-a576-28f7a46d8fa5" name="XPath Match Owner"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:owner</path><content>Brenda</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://new.webservice.namespace/PhotoalbumPortType/AddAlbumRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="d01dde2c-6821-4542-808c-0615d77bdf9a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddPhoto TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="b99f6142-aabf-40ba-bba8-812427d265e7" name="AddPhoto"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PhotoalbumBinding</con:interface><con:operation>AddPhoto</con:operation><con:request name="AddPhoto" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="6230745a-f136-4e29-bf5a-e257a54be0c3"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://xsd.webservice.namespace">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <xsd:AddPhotoRequest>\r
+         <xsd:API_TOKEN>abcdefg123456</xsd:API_TOKEN>\r
+         <xsd:REQUEST_ID>10</xsd:REQUEST_ID>\r
+         <xsd:photoURL>imgur.com/pilt2</xsd:photoURL>\r
+         <xsd:title>Pilt 2</xsd:title>\r
+         <xsd:description>Pildi kirjeldus2</xsd:description>\r
+         <xsd:author>Brenda</xsd:author>\r
+         <xsd:dateTaken>2016-01-02</xsd:dateTaken>\r
+         <xsd:size>900x1600</xsd:size>\r
+         <xsd:extension>jpeg</xsd:extension>\r
+      </xsd:AddPhotoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="77eac151-3ff3-4d12-a563-9a20df6648db" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" id="f557a4a0-456f-459e-a36e-641ebe12b0e0" name="XPath Match"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:photoURL</path><content>imgur.com/pilt2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="83606f46-ee82-4662-a87a-77caad448e96" name="XPath Match Title"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:title</path><content>Pilt 2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="89450dbf-31ba-4e8d-b956-f7d1917f1d6a" name="XPath Match Description"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:description</path><content>Pildi kirjeldus2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="1c1ffc78-5343-45c3-b84a-399be25e905a" name="XPath Match Author"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:author</path><content>Brenda</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="115adf10-9c8a-49bf-8200-402967719b24" name="XPath Match Date"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:dateTaken</path><content>2016-01-02</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="2aaf7741-7029-4f94-8312-28d265fcbd93" name="XPath Match Size"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:size</path><content>900x1600</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="e2bdc160-5fb7-43fd-aa41-4ac13e2991a9" name="XPath Match Extension"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:extension</path><content>jpeg</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://new.webservice.namespace/PhotoalbumPortType/AddPhotoRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="25b87361-c772-4400-a1c9-cc852c69cf58" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddPhotoToAlbum TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="09058070-518d-4820-a1cf-35f0a6f06cbb" name="AddPhotoToAlbum"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PhotoalbumBinding</con:interface><con:operation>AddPhotoToAlbum</con:operation><con:request name="AddPhotoToAlbum" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="63fb3f6c-18f0-4e6c-9f45-f63ebc7df219"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://xsd.webservice.namespace">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <xsd:AddPhotoToAlbumRequest>\r
+         <xsd:API_TOKEN>abcdefg123456</xsd:API_TOKEN>\r
+         <xsd:REQUEST_ID>52</xsd:REQUEST_ID>\r
+         <xsd:photoID>1</xsd:photoID>\r
+         <xsd:albumID>1</xsd:albumID>\r
+      </xsd:AddPhotoToAlbumRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="ccb1d207-f7ce-4b1c-83f4-26ec9a144316" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" id="84d5e196-d416-4202-84de-6d304c50b982" name="XPath Match"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:album/xmlns:albumID</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="ec5cca2e-1513-4a7a-988e-d25888c17b16" name="XPath Match Photoid"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:album/xmlns:photo[1]/xmlns:photoID</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://new.webservice.namespace/PhotoalbumPortType/AddPhotoToAlbumRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="6504447c-7ee4-4467-9e6d-a0a801aadb58" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetAlbum TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="42ca20cb-c778-47db-a491-3adfc910ebbc" name="GetAlbum"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PhotoalbumBinding</con:interface><con:operation>GetAlbum</con:operation><con:request name="GetAlbum" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="2e43371c-b8c7-4bbd-91b1-c227b693de20"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://xsd.webservice.namespace">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <xsd:GetAlbumRequest>\r
+         <xsd:API_TOKEN>abcdefg123456</xsd:API_TOKEN>\r
+         <xsd:REQUEST_ID>44</xsd:REQUEST_ID>\r
+         <xsd:albumID>1</xsd:albumID>\r
+      </xsd:GetAlbumRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="d1e66ada-18fc-443d-901c-16ef66194b71" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" id="2dee3d7d-d4fc-42f5-ae83-559790bfc3cc" name="XPath Match"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:albumID</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://new.webservice.namespace/PhotoalbumPortType/GetAlbumRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="e8a7178b-81ba-43a3-97ee-a75f4c09b580" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetAlbumsWithParameters TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="b6e00f97-c10d-487f-8cb0-655f48325200" name="GetAlbumsWithParameters"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PhotoalbumBinding</con:interface><con:operation>GetAlbumsWithParameters</con:operation><con:request name="GetAlbumsWithParameters" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="c31ffbbb-5377-48e4-8c31-06beb8c68404"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://xsd.webservice.namespace">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <xsd:GetAlbumsWithParametersRequest>\r
+         <xsd:API_TOKEN>abcdefg123456</xsd:API_TOKEN>\r
+         <xsd:REQUEST_ID>55</xsd:REQUEST_ID>\r
+         <!--Optional:-->\r
+         <xsd:owner>Brenda</xsd:owner>\r
+      </xsd:GetAlbumsWithParametersRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="ebcedd1c-b7a0-4345-8112-52a19daca2cd" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" id="09b67c79-7c5d-432c-a41c-15dea0e81c5a" name="XPath Match"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:album[1]/xmlns:owner</path><content>Brenda</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://new.webservice.namespace/PhotoalbumPortType/GetAlbumsWithParametersRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="61cd83f6-37b5-4c4f-87e2-9d698ff2daa9" name="GetAlbumsWithParameters 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PhotoalbumBinding</con:interface><con:operation>GetAlbumsWithParameters</con:operation><con:request name="GetAlbumsWithParameters 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="d04e08a8-e69e-4b1b-8db3-34f0884e332d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://xsd.webservice.namespace">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <xsd:GetAlbumsWithParametersRequest>\r
+         <xsd:API_TOKEN>abcdefg123456</xsd:API_TOKEN>\r
+         <xsd:REQUEST_ID>56</xsd:REQUEST_ID>\r
+         <xsd:owner>Brenda</xsd:owner>\r
+         <xsd:size>0</xsd:size>\r
+         <xsd:title>Album 1</xsd:title>\r\r
+      </xsd:GetAlbumsWithParametersRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="a9d432c6-a90d-4fb3-abec-a311050339f9" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" id="14f760b6-80a9-43a7-a89c-22f6944b78e4" name="XPath Match"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:album[1]/xmlns:owner</path><content>Brenda</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="f8fb57fb-0b4b-4c0c-8c79-9f06893c855c" name="XPath Match Size"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:album[1]/xmlns:size</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="d3a288d1-84d9-400c-8e29-8b1b03b19c96" name="XPath Match Title"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:album[1]/xmlns:title</path><content>Album 1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://new.webservice.namespace/PhotoalbumPortType/GetAlbumsWithParametersRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="9185fa10-7185-4ee8-9dc7-7b437f8a6053" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetPhoto TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="8639d3cc-dc75-4537-a203-a7ae270d7292" name="GetPhoto"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PhotoalbumBinding</con:interface><con:operation>GetPhoto</con:operation><con:request name="GetPhoto" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="d04c9e40-72b9-46be-9cfb-eb748565553f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://xsd.webservice.namespace">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <xsd:GetPhotoRequest>\r
+         <xsd:API_TOKEN>abcdefg123456</xsd:API_TOKEN>\r
+         <xsd:REQUEST_ID>24</xsd:REQUEST_ID>\r
+         <xsd:photoID>1</xsd:photoID>\r
+      </xsd:GetPhotoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="5762dbd6-14b8-431f-b8dd-7651d8bf4e12" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" id="b42399e0-8251-4a75-91d3-a9f1c0d10acc" name="XPath Match"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:photoID</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://new.webservice.namespace/PhotoalbumPortType/GetPhotoRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="383390ab-a0a8-4984-96d1-3f53ab1d9217" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetPhotosInAlbum TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="9342a1e0-be86-4b25-93db-7363c0fadbe6" name="GetPhotosInAlbum"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PhotoalbumBinding</con:interface><con:operation>GetPhotosInAlbum</con:operation><con:request name="GetPhotosInAlbum" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="eaee5936-a1ff-47dd-8c54-b9c167dca6e9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://xsd.webservice.namespace">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <xsd:GetPhotosInAlbumRequest>\r
+         <xsd:API_TOKEN>abcdefg123456</xsd:API_TOKEN>\r
+         <xsd:REQUEST_ID>17</xsd:REQUEST_ID>\r
+         <xsd:albumID>1</xsd:albumID>\r
+      </xsd:GetPhotosInAlbumRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="06100556-525f-4421-a231-f2f4479dd335" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" id="f4e6141e-419f-4f18-af2f-c8cf8ec2d1e7" name="XPath Match"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:photo/xmlns:photoID</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://new.webservice.namespace/PhotoalbumPortType/GetPhotosInAlbumRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="cbfd3d52-03f2-4cf6-8f8a-2f1ff10212f0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetPhotosWithParameters TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="a85a9d88-76b8-45ca-9314-02dec9646217" name="GetPhotosWithParameters"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PhotoalbumBinding</con:interface><con:operation>GetPhotosWithParameters</con:operation><con:request name="GetPhotosWithParameters" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="eb1d2e4a-ee42-4a3c-b837-3843a02d51fd"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://xsd.webservice.namespace">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <xsd:GetPhotosWithParametersRequest>\r
+         <xsd:API_TOKEN>abcdefg123456</xsd:API_TOKEN>\r
+         <xsd:REQUEST_ID>54</xsd:REQUEST_ID>\r
+         <!--Optional:-->\r
+         <xsd:author>Brenda</xsd:author>\r
+         <xsd:extension>jpeg</xsd:extension>
+      </xsd:GetPhotosWithParametersRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="ee784089-92b4-4a41-ae50-7c76f7011011" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" id="ba3cc52d-b754-49a4-ac5f-460017f4eb0c" name="XPath Match"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:photo[1]/xmlns:author</path><content>Brenda</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="fa776316-c816-43af-90f5-0299b3af5f4d" name="XPath Match Extension"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:photo[1]/xmlns:extension</path><content>jpeg</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://new.webservice.namespace/PhotoalbumPortType/GetPhotosWithParametersRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="567c12c3-524e-4c5b-9c63-87987405f676" name="GetPhotosWithParameters 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PhotoalbumBinding</con:interface><con:operation>GetPhotosWithParameters</con:operation><con:request name="GetPhotosWithParameters 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="a2e23006-9b0f-47f3-a3cd-f40812647971"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/veebiteenused/services/PhotoalbumPortType</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://xsd.webservice.namespace">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <xsd:GetPhotosWithParametersRequest>\r
+         <xsd:API_TOKEN>abcdefg123456</xsd:API_TOKEN>\r
+         <xsd:REQUEST_ID>53</xsd:REQUEST_ID>\r
+         <xsd:author>Brenda</xsd:author>\r
+         <xsd:title>Pilt 2</xsd:title>\r\r
+         <xsd:extension>jpeg</xsd:extension>\r
+         <xsd:size>900x1600</xsd:size>\r
+      </xsd:GetPhotosWithParametersRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="4e868543-c066-41d9-994e-bca27db46899" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" id="72930cbe-ab19-4044-8f41-dffe1a58358c" name="XPath Match"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:photo[1]/xmlns:author</path><content>Brenda</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="f159abe0-3f12-4b24-8cd1-ef1aa20cc21b" name="XPath Match Title"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:photo[1]/xmlns:title</path><content>Pilt 2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="08edde81-97ab-48be-948d-16689b5c5957" name="XPath Match Extension"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:photo[1]/xmlns:extension</path><content>jpeg</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="690ce825-4348-4bd4-a01c-80d599fc7e1b" name="XPath Match Size"><con:configuration><path>declare namespace xmlns='http://xsd.webservice.namespace';
+//xmlns:photo[1]/xmlns:size</path><content>900x1600</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://new.webservice.namespace/PhotoalbumPortType/GetPhotosWithParametersRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
